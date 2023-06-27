@@ -1,0 +1,42 @@
+Import-CSV C:\Temp\abc123.csv | foreach {  
+ $UPN=$_.UPN 
+ Write-Progress -Activity "Adding $UPN to group… " 
+ Get-MsolUser -UserPrincipalName "$UPN" |select licenses  
+ Export-Csv C:\Temp\hahaha.csv
+ If($?)  
+ {  
+
+ }  
+ Else  
+ {  
+ Write-Host $UPN - Error occurred –ForegroundColor Red  
+ }  
+} 
+
+
+
+OR
+
+
+$x=Get-Content "C:\temp\users.txt"
+for ($i=0; $i -lt $x.Count; $i++)
+{
+Get-MsolUser -UserPrincipalName $x[$i] | select licenses >> c:\temp\deontest.txt
+
+
+ If($?)  
+ {  
+ Write-Host $x[$i] Successfully looked up -ForegroundColor Green 
+ }  
+ Else  
+ {  
+ Write-Host $x[$i] - Error occurred –ForegroundColor Red  
+ }  
+ }
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+$x=Get-content "C:\temp\temp.txt"
+for ($i=0; $i -lt $x.Count; $i++)
+{
+systeminfo /s $x[$i]
+
+If($?)
+{
+Write-Host $x[$i] Successfully looked up -ForegroundColor Green
+}
+Else
+{
+Write-Host $x[$i] - Error Occured -ForegroundColor Red
+}
+} 

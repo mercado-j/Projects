@@ -1,0 +1,4 @@
+Remove-AzureADGroupMember -ObjectId "0ca6c5e8-0abe-423b-b025-566f113c4732" -MemberId "0ae70452-4a54-4824-a963-f28bdf336337"
+
+
+Get-AzureADUser -Filter "userPrincipalName eq 'alexandria.wright@oakviewgroup.com'"
